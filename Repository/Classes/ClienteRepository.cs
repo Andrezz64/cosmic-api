@@ -24,13 +24,7 @@ public class ClienteRepository(CosmicContext context) : ICliente
        _context.SaveChanges();
     }
 
-    public List<Cliente> GetAll()
-    {
-        return [.. _context.Clientes];
-    }
+    public List<Cliente> GetAll() => [.. _context.Clientes];
 
-    public Cliente GetOne(Cliente cliente)
-    {
-        return _context.Clientes.FirstOrDefault(cliente);
-    }
+    public Cliente GetOne(Cliente cliente) => _context.Clientes.FirstOrDefault(cliente);
 }
