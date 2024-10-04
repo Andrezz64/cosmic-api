@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oaWmoNGRvqGhbLhVRH20TQOIjfXXLCompqL3lHEA8YU=",
+  "Source": "cosmic-api",
+  "BasePath": "_content/cosmic-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
