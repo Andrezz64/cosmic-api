@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cosmic-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea4e10899ee990a9ea570d23b8a1d5ed33c36064")]
 [assembly: System.Reflection.AssemblyProductAttribute("cosmic-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cosmic-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

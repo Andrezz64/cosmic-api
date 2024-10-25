@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Services.Controllers.Classes;
 
-public class ProdutosControllerService(IProduto produto, IErrorHandler errorHandler) : ControllerBase, IProdutosController
+public class ColecaoControllerService(IColecao colecao, IErrorHandler errorHandler) : ControllerBase, IColecaoController
 {
-    private readonly IProduto _produto = produto;
+    private readonly IColecao _colecao = colecao;
     private readonly IErrorHandler _errorHandler = errorHandler;
 
     public IActionResult Delete(int id)
     {
         try
         {
-            Produto produto = new(){Id = id};
-            _produto.DeleteOne(produto);
-            return Ok(produto);
+            Coleco colecaoLocal = new(){Id = id};
+            _colecao.DeleteOne(colecaoLocal);
+            return Ok(colecao);
         }
         catch (System.Exception ex)
         {
@@ -29,7 +29,7 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
     {
         try
         {
-            return Ok(_produto.GetAll());
+            return Ok(_colecao.GetAll());
         }
         catch (System.Exception ex)
         {
@@ -37,12 +37,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Put(Produto produto)
+    public IActionResult Put(Coleco colecao)
     {
         try
         {
-            _produto.ChangeOne(produto);
-            return Ok(produto);
+            _colecao.ChangeOne(colecao);
+            return Ok(colecao);
         }
         catch (System.Exception ex)
         {
@@ -50,12 +50,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Post(Produto produto)
+    public IActionResult Post(Coleco colecao)
     {
         try
         {
-            _produto.CreateOne(produto);
-            return Ok(produto);
+            _colecao.CreateOne(colecao);
+            return Ok(colecao);
         }
         catch (System.Exception ex)
         {

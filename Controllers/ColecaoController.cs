@@ -1,13 +1,14 @@
     using cosmic_api.Models;
+using cosmic_api.Repository.interfaces;
 using cosmic_api.Services.Controllers.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Controllers;
 [ApiController]
 [Route("api/v1/[controller]")]
-public class ProdutoController(IProdutosController controller) : ControllerBase
+public class ColecaoController(IColecaoController controller) : ControllerBase
 {
-    private readonly IProdutosController _controller = controller;
+    private readonly IColecaoController _controller = controller;
     [HttpGet]
     public IActionResult Get()
     {
@@ -15,9 +16,9 @@ public class ProdutoController(IProdutosController controller) : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] Produto produto)
+    public IActionResult Post([FromBody] Coleco colecao)
     {
-        return _controller.Post(produto);
+        return _controller.Post(colecao);
     }
 
     [HttpDelete]
@@ -28,9 +29,9 @@ public class ProdutoController(IProdutosController controller) : ControllerBase
     }
 
     [HttpPatch]
-    public IActionResult Put([FromBody] Produto produto)
+    public IActionResult Put([FromBody] Coleco colecao)
     {
-        return _controller.Put(produto);
+        return _controller.Put(colecao);
     }
 
 }

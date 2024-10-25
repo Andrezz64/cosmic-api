@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Services.Controllers.Classes;
 
-public class ProdutosControllerService(IProduto produto, IErrorHandler errorHandler) : ControllerBase, IProdutosController
+public class ClienteControllerService(ICliente cliente, IErrorHandler errorHandler) : ControllerBase, IClienteController
 {
-    private readonly IProduto _produto = produto;
+    private readonly ICliente _cliente = cliente;
     private readonly IErrorHandler _errorHandler = errorHandler;
 
     public IActionResult Delete(int id)
     {
         try
         {
-            Produto produto = new(){Id = id};
-            _produto.DeleteOne(produto);
-            return Ok(produto);
+            Cliente clienteLocal = new(){Id = id};
+            _cliente.DeleteOne(clienteLocal);
+            return Ok(cliente);
         }
         catch (System.Exception ex)
         {
@@ -29,7 +29,7 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
     {
         try
         {
-            return Ok(_produto.GetAll());
+            return Ok(_cliente.GetAll());
         }
         catch (System.Exception ex)
         {
@@ -37,12 +37,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Put(Produto produto)
+    public IActionResult Put(Cliente cliente)
     {
         try
         {
-            _produto.ChangeOne(produto);
-            return Ok(produto);
+            _cliente.ChangeOne(cliente);
+            return Ok(cliente);
         }
         catch (System.Exception ex)
         {
@@ -50,16 +50,26 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Post(Produto produto)
+    public IActionResult Post(Cliente cliente)
     {
         try
         {
-            _produto.CreateOne(produto);
-            return Ok(produto);
+            _cliente.CreateOne(cliente);
+            return Ok(cliente);
         }
         catch (System.Exception ex)
         {
             return _errorHandler.GenericError(ex);
         }
+    }
+
+    public string Login(string Usuário, string Senha)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Logout(string JWT)
+    {
+        throw new NotImplementedException();
     }
 }

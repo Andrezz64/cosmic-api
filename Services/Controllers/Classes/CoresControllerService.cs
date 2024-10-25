@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Services.Controllers.Classes;
 
-public class ProdutosControllerService(IProduto produto, IErrorHandler errorHandler) : ControllerBase, IProdutosController
+public class CoresControllerService(ICor cores, IErrorHandler errorHandler) : ControllerBase, ICoresController
 {
-    private readonly IProduto _produto = produto;
+    private readonly ICor _cores = cores;
     private readonly IErrorHandler _errorHandler = errorHandler;
 
     public IActionResult Delete(int id)
     {
         try
         {
-            Produto produto = new(){Id = id};
-            _produto.DeleteOne(produto);
-            return Ok(produto);
+            Core corLocal = new(){Id = id};
+            _cores.DeleteOne(corLocal);
+            return Ok(corLocal);
         }
         catch (System.Exception ex)
         {
@@ -29,7 +29,7 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
     {
         try
         {
-            return Ok(_produto.GetAll());
+            return Ok(_cores.GetAll());
         }
         catch (System.Exception ex)
         {
@@ -37,12 +37,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Put(Produto produto)
+    public IActionResult Put(Core cor)
     {
         try
         {
-            _produto.ChangeOne(produto);
-            return Ok(produto);
+            _cores.ChangeOne(cor);
+            return Ok(cor);
         }
         catch (System.Exception ex)
         {
@@ -50,12 +50,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Post(Produto produto)
+    public IActionResult Post(Core cor)
     {
         try
         {
-            _produto.CreateOne(produto);
-            return Ok(produto);
+            _cores.CreateOne(cor);
+            return Ok(cor);
         }
         catch (System.Exception ex)
         {

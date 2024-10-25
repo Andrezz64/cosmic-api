@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace cosmic_api.Controllers;
 [ApiController]
 [Route("api/v1/[controller]")]
-public class ProdutoController(IProdutosController controller) : ControllerBase
+public class CoresController(ICoresController controller) : ControllerBase
 {
-    private readonly IProdutosController _controller = controller;
+    private readonly ICoresController _controller = controller;
     [HttpGet]
     public IActionResult Get()
     {
@@ -15,9 +15,9 @@ public class ProdutoController(IProdutosController controller) : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] Produto produto)
+    public IActionResult Post([FromBody] Core cor)
     {
-        return _controller.Post(produto);
+        return _controller.Post(cor);
     }
 
     [HttpDelete]
@@ -28,9 +28,9 @@ public class ProdutoController(IProdutosController controller) : ControllerBase
     }
 
     [HttpPatch]
-    public IActionResult Put([FromBody] Produto produto)
+    public IActionResult Put([FromBody] Core cor)
     {
-        return _controller.Put(produto);
+        return _controller.Put(cor);
     }
 
 }

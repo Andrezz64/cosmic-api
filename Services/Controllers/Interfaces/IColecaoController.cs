@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace cosmic_api.Services.Controllers.Interfaces;
 
-public interface IProdutosController
+public interface IColecaoController
 {
     public IActionResult Get();
-    public IActionResult Post(Produto produto);
+    public IActionResult Post(Coleco colecao);
     public IActionResult Delete(int id);
-    public IActionResult Put(Produto produto);
+    public IActionResult Put(Coleco colecao);
 }

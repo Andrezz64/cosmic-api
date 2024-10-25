@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Services.Controllers.Classes;
 
-public class ProdutosControllerService(IProduto produto, IErrorHandler errorHandler) : ControllerBase, IProdutosController
+public class VendaControllerService(IVenda venda, IErrorHandler errorHandler) : ControllerBase, IVendaController
 {
-    private readonly IProduto _produto = produto;
+    private readonly IVenda _venda = venda;
     private readonly IErrorHandler _errorHandler = errorHandler;
 
     public IActionResult Delete(int id)
     {
         try
         {
-            Produto produto = new(){Id = id};
-            _produto.DeleteOne(produto);
-            return Ok(produto);
+            Venda vendaLocal = new(){Id = id};
+            _venda.DeleteOne(vendaLocal);
+            return Ok(vendaLocal);
         }
         catch (System.Exception ex)
         {
@@ -29,7 +29,7 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
     {
         try
         {
-            return Ok(_produto.GetAll());
+            return Ok(_venda.GetAll());
         }
         catch (System.Exception ex)
         {
@@ -37,12 +37,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Put(Produto produto)
+    public IActionResult Put(Venda venda)
     {
         try
         {
-            _produto.ChangeOne(produto);
-            return Ok(produto);
+            _venda.ChangeOne(venda);
+            return Ok(venda);
         }
         catch (System.Exception ex)
         {
@@ -50,12 +50,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Post(Produto produto)
+    public IActionResult Post(Venda venda)
     {
         try
         {
-            _produto.CreateOne(produto);
-            return Ok(produto);
+            _venda.CreateOne(venda);
+            return Ok(venda);
         }
         catch (System.Exception ex)
         {

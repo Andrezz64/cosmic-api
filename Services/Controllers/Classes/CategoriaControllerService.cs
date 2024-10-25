@@ -6,18 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace cosmic_api.Services.Controllers.Classes;
 
-public class ProdutosControllerService(IProduto produto, IErrorHandler errorHandler) : ControllerBase, IProdutosController
+public class CategoriaControllerService(ICategoria categoria, IErrorHandler errorHandler) : ControllerBase, ICategoriaController
 {
-    private readonly IProduto _produto = produto;
+    private readonly ICategoria _categoria = categoria;
     private readonly IErrorHandler _errorHandler = errorHandler;
 
     public IActionResult Delete(int id)
     {
         try
         {
-            Produto produto = new(){Id = id};
-            _produto.DeleteOne(produto);
-            return Ok(produto);
+            Categoria categoriaLocal = new(){Id = id};
+            _categoria.DeleteOne(categoriaLocal);
+            return Ok(categoria);
         }
         catch (System.Exception ex)
         {
@@ -29,7 +29,7 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
     {
         try
         {
-            return Ok(_produto.GetAll());
+            return Ok(_categoria.GetAll());
         }
         catch (System.Exception ex)
         {
@@ -37,12 +37,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Put(Produto produto)
+    public IActionResult Put(Categoria categoria)
     {
         try
         {
-            _produto.ChangeOne(produto);
-            return Ok(produto);
+            _categoria.ChangeOne(categoria);
+            return Ok(categoria);
         }
         catch (System.Exception ex)
         {
@@ -50,12 +50,12 @@ public class ProdutosControllerService(IProduto produto, IErrorHandler errorHand
         }
     }
 
-    public IActionResult Post(Produto produto)
+    public IActionResult Post(Categoria categoria)
     {
         try
         {
-            _produto.CreateOne(produto);
-            return Ok(produto);
+            _categoria.CreateOne(categoria);
+            return Ok(categoria);
         }
         catch (System.Exception ex)
         {

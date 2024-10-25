@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\comisc-api\\cosmic-api\\cosmic-api.csproj": {}
+    "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\comisc-api\\cosmic-api\\cosmic-api.csproj": {
+    "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\comisc-api\\cosmic-api\\cosmic-api.csproj",
+        "projectUniqueName": "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj",
         "projectName": "cosmic-api",
-        "projectPath": "C:\\Projetos\\comisc-api\\cosmic-api\\cosmic-api.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\comisc-api\\cosmic-api\\obj\\",
+        "projectPath": "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj",
+        "packagesPath": "C:\\Users\\andre.infra\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\TCC\\cosmic-api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\andre.infra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

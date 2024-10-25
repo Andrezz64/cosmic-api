@@ -4,10 +4,14 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace cosmic_api.Services.Controllers.Interfaces;
 
-public interface IProdutosController
+public interface IClienteController
 {
     public IActionResult Get();
-    public IActionResult Post(Produto produto);
+    public IActionResult Post(Cliente cliente);
     public IActionResult Delete(int id);
-    public IActionResult Put(Produto produto);
+    public IActionResult Put(Cliente cliente);
+
+    public string Login(string Usuário, string Senha);
+
+    public bool Logout(string JWT);
 }

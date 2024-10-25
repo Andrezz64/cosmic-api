@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace cosmic_api.Services.Controllers.Interfaces;
 
-public interface IProdutosController
+public interface ICategoriaController
 {
     public IActionResult Get();
-    public IActionResult Post(Produto produto);
+    public IActionResult Post(Categoria categoria);
     public IActionResult Delete(int id);
-    public IActionResult Put(Produto produto);
+    public IActionResult Put(Categoria categoria);
 }
