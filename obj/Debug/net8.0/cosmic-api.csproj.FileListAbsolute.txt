@@ -102,3 +102,6 @@ C:\Projetos\comisc-api\cosmic-api\obj\Debug\net8.0\refint\cosmic-api.dll
 C:\Projetos\comisc-api\cosmic-api\obj\Debug\net8.0\cosmic-api.pdb
 C:\Projetos\comisc-api\cosmic-api\obj\Debug\net8.0\cosmic-api.genruntimeconfig.cache
 C:\Projetos\comisc-api\cosmic-api\obj\Debug\net8.0\ref\cosmic-api.dll
+C:\Projetos\cosmic-api\obj\Debug\net8.0\cosmic-api.dll
+C:\Projetos\cosmic-api\obj\Debug\net8.0\refint\cosmic-api.dll
+C:\Projetos\cosmic-api\obj\Debug\net8.0\cosmic-api.pdb
