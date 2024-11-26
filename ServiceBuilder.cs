@@ -20,5 +20,11 @@ public static class ServiceBuilder
         service.AddScoped<IVenda,VendaRepository>();
         service.AddScoped<IErrorHandler,ErrorHandler>();
         service.AddScoped<IProdutosController,ProdutosControllerService>();
+        service.AddScoped<ICategoriaController,CategoriaControllerService>();
+        service.AddScoped<IClienteController,ClienteControllerService>();
+        service.AddScoped<IColecaoController,ColecaoControllerService>();
+        service.AddScoped<ICoresController,CoresControllerService>();
+        service.AddScoped<IProdutosController,ProdutosControllerService>();
+        service.AddScoped<IVendaController,VendaControllerService>();
     }
 }
