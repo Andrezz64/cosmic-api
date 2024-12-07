@@ -34,4 +34,9 @@ public class ClienteController(IClienteController controller) : ControllerBase
         return _controller.Put(cliente);
     }
 
+    [HttpPost]
+    [Route("entrar")]
+    public IActionResult Post([FromBody] LoginDTO login){
+        return _controller.Login(login.Email,login.Senha);
+    }
 }

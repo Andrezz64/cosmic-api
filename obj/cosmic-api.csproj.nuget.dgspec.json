@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj": {}
+    "C:\\Projetos\\Estudos\\Cosmic\\cosmic-api\\cosmic-api.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj": {
+    "C:\\Projetos\\Estudos\\Cosmic\\cosmic-api\\cosmic-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj",
+        "projectUniqueName": "C:\\Projetos\\Estudos\\Cosmic\\cosmic-api\\cosmic-api.csproj",
         "projectName": "cosmic-api",
-        "projectPath": "C:\\Projetos\\TCC\\cosmic-api\\cosmic-api.csproj",
+        "projectPath": "C:\\Projetos\\Estudos\\Cosmic\\cosmic-api\\cosmic-api.csproj",
         "packagesPath": "C:\\Users\\andre.infra\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\TCC\\cosmic-api\\obj\\",
+        "outputPath": "C:\\Projetos\\Estudos\\Cosmic\\cosmic-api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

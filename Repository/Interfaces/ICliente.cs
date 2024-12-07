@@ -8,4 +8,5 @@ public interface ICliente
     public Cliente GetOne(Cliente cliente);
     public void ChangeOne(Cliente cliente);
     public void DeleteOne(Cliente cliente);
+    public bool Autorizar(string email,string senha);
 }

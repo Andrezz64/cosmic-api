@@ -63,9 +63,18 @@ public class ClienteControllerService(ICliente cliente, IErrorHandler errorHandl
         }
     }
 
-    public string Login(string Usuário, string Senha)
+    public IActionResult Login(string email, string senha)
     {
-        throw new NotImplementedException();
+        try
+        {
+           bool  result = _cliente.Autorizar(email,senha);
+           if(result){return Ok("sucesso");}
+           return BadRequest("Usuário ou senha incorretos");
+        }
+        catch (System.Exception ex)
+        {
+            return _errorHandler.GenericError(ex);
+        }
     }
 
     public bool Logout(string JWT)

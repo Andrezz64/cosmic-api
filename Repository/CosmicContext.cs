@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using cosmic_api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace cosmic_api;
+namespace cosmic_api.Repository;
 
 public partial class CosmicContext : DbContext
 {
@@ -34,7 +34,7 @@ public partial class CosmicContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=postgres;Database=cosmic");
+        => optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=123;Database=cosmic");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -111,30 +111,51 @@ public partial class CosmicContext : DbContext
 
             entity.ToTable("produtos", "cosmic");
 
+            entity.HasIndex(e => e.CategoriaId, "IX_produtos_categoria_id");
+
+            entity.HasIndex(e => e.ColecaoId, "IX_produtos_colecao_id");
+
+            entity.HasIndex(e => e.CorId, "IX_produtos_cor_id");
+
             entity.Property(e => e.Id)
                 .UseIdentityAlwaysColumn()
                 .HasColumnName("id");
+            entity.Property(e => e.Categoria)
+                .HasMaxLength(123)
+                .HasColumnName("categoria");
             entity.Property(e => e.CategoriaId).HasColumnName("categoria_id");
+            entity.Property(e => e.Colecao)
+                .HasMaxLength(256)
+                .HasColumnName("colecao");
             entity.Property(e => e.ColecaoId).HasColumnName("colecao_id");
+            entity.Property(e => e.Cor)
+                .HasMaxLength(145)
+                .HasColumnName("cor");
             entity.Property(e => e.CorId).HasColumnName("cor_id");
             entity.Property(e => e.Descricao)
                 .HasMaxLength(150)
                 .HasColumnName("descricao");
+            entity.Property(e => e.Nome)
+                .HasMaxLength(123)
+                .HasColumnName("nome");
+            entity.Property(e => e.Url)
+                .HasMaxLength(256)
+                .HasColumnName("url");
             entity.Property(e => e.Valor)
                 .HasColumnType("money")
                 .HasColumnName("valor");
 
-            entity.HasOne(d => d.Categoria).WithMany(p => p.Produtos)
+            entity.HasOne(d => d.CategoriaNavigation).WithMany(p => p.Produtos)
                 .HasForeignKey(d => d.CategoriaId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("categoria");
 
-            entity.HasOne(d => d.Colecao).WithMany(p => p.Produtos)
+            entity.HasOne(d => d.ColecaoNavigation).WithMany(p => p.Produtos)
                 .HasForeignKey(d => d.ColecaoId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("colecao");
 
-            entity.HasOne(d => d.Cor).WithMany(p => p.Produtos)
+            entity.HasOne(d => d.CorNavigation).WithMany(p => p.Produtos)
                 .HasForeignKey(d => d.CorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("cor");
@@ -182,6 +203,8 @@ public partial class CosmicContext : DbContext
             entity.HasKey(e => e.Id).HasName("venda_pkey");
 
             entity.ToTable("vendas", "cosmic");
+
+            entity.HasIndex(e => e.PrudutoId, "IX_vendas_pruduto_id");
 
             entity.HasIndex(e => e.ClienteId, "fki_clientes");
 

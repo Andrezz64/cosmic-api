@@ -27,4 +27,12 @@ public class ClienteRepository(CosmicContext context) : ICliente
     public List<Cliente> GetAll() => [.. _context.Clientes];
 
     public Cliente GetOne(Cliente cliente) => _context.Clientes.FirstOrDefault(cliente);
+
+    public bool Autorizar(string email,string senha){
+        Cliente cliente =_context.Clientes.Where(c => c.Emaill == email).FirstOrDefault() ?? throw new ArgumentNullException(email);
+        if(cliente.Senha == senha){
+            return true;
+        }
+        return false;
+    }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace cosmic_api.Models;
 
@@ -17,12 +16,22 @@ public partial class Produto
     public int ColecaoId { get; set; }
 
     public int CorId { get; set; }
-     [JsonIgnore]
-    public virtual Categoria Categoria { get; set; } = null!;
-     [JsonIgnore]
-    public virtual Coleco Colecao { get; set; } = null!;
-     [JsonIgnore]
-    public virtual Core Cor { get; set; } = null!;
-    [JsonIgnore]
+
+    public string? Url { get; set; }
+
+    public string? Colecao { get; set; }
+
+    public string? Cor { get; set; }
+
+    public string? Nome { get; set; }
+
+    public string? Categoria { get; set; }
+
+    public virtual Categoria CategoriaNavigation { get; set; } = null!;
+
+    public virtual Coleco ColecaoNavigation { get; set; } = null!;
+
+    public virtual Core CorNavigation { get; set; } = null!;
+
     public virtual ICollection<Venda> Venda { get; set; } = new List<Venda>();
 }

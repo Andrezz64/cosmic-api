@@ -11,7 +11,7 @@ public interface IClienteController
     public IActionResult Delete(int id);
     public IActionResult Put(Cliente cliente);
 
-    public string Login(string Usuário, string Senha);
+    public IActionResult Login(string Usuário, string Senha);
 
     public bool Logout(string JWT);
 }
